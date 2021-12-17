@@ -10,6 +10,7 @@
 // use client-side storage to store high scores
 // use github pages to publish the page to the web
 
+// this is a test
 
 //START OF QUIZ CODE
 let start = document.getElementById("start");
