@@ -1,18 +1,10 @@
 // MODULE 4 CHALLENGE
 // Goal: to create a timer based coding quiz application that stores high scores using client-side storage
-// Requirements: 
-// create variables to strore the quiz questions
-// use mouse-click events to start the quiz
-// use for loops to cycle through quiz questions
-// use key-press events to recieve user input in the form of answers to questions
-// create a time limit for the game using time functions
-// write conditional statements to determine wrong and right answers
-// use client-side storage to store high scores
-// use github pages to publish the page to the web
 
-// this is a test
 
 //START OF QUIZ CODE
+// Create variables to strore the quiz questions
+
 let start = document.getElementById("start");
 
 let question = document.getElementById("question");
@@ -38,7 +30,34 @@ let landingPage = document.getElementById("landing-page")
 let timer = document.getElementById("timer");
 let scoreContainer = document.getElementById("score-container")
 
+// Use mouse-click events to start the quiz
+function startQuiz(){
+    display();
+    quizPage.classList.remove('display');
+    timer.classList.remove('display')
 
+    timeLeft = quizTime;
+
+    let timerInterval = setInterval(() => {
+        timeLeft --;
+        timer.textContent = "Time "+ timeLeft;
+
+        if(timeLeft === 0){
+            clearInterval(timerInterval)
+
+            // invoke the function that stops the game
+            timer.classList.add('display')
+            quizPage.classList.add('display');
+            scoreContainer.classList.remove('display')
+        }
+        
+    }, 1000);
+}
+
+start.addEventListener("click",startQuiz);
+
+// use for loops to cycle through quiz questions
+// use key-press events to recieve user input in the form of answers to questions
 let questions = [
     
     {
@@ -87,6 +106,7 @@ let questions = [
 
 ];
 
+// create a time limit for the game using time functions
 let pages = [quizPage, landingPage, timer, scoreContainer];
 let quizTime = 10;
 timer.textContent = "Time " + quizTime;
@@ -130,28 +150,5 @@ function renderProgress(){
 
 }
 
-
-function startQuiz(){
-    display();
-    quizPage.classList.remove('display');
-    timer.classList.remove('display')
-
-    timeLeft = quizTime;
-
-    let timerInterval = setInterval(() => {
-        timeLeft --;
-        timer.textContent = "Time "+ timeLeft;
-
-        if(timeLeft === 0){
-            clearInterval(timerInterval)
-
-            // invoke the function that stops the game
-            timer.classList.add('display')
-            quizPage.classList.add('display');
-            scoreContainer.classList.remove('display')
-        }
-        
-    }, 1000);
-}
-
-start.addEventListener("click",startQuiz);
+// write conditional statements to determine wrong and right answers
+// use client-side storage to store high scores
