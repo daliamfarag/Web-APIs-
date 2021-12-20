@@ -1,4 +1,4 @@
-// html elements
+// Page Variables 
 const timerEl = document.getElementById("timer-el");
 const sections = {
   intro: document.getElementById("intro"),
@@ -7,7 +7,7 @@ const sections = {
   highScores: document.getElementById("high-scores"),
 };
 
-// page load
+// Main Page to Load
 let questionCounter;
 let correctQuestions;
 let timeRemaining;
@@ -19,21 +19,11 @@ function pageLoad() {
   questionCounter = 0;
   correctQuestions = 0;
   score = 0;
-  timeRemaining = 300;
+  timeRemaining = 60;
 }
 pageLoad();
 
-// begin quiz
-function beginQuiz() {
-  document.getElementById(
-    "timer-el"
-  ).innerText = `Time Remaining: ${timeRemaining}`;
-  startTimer();
-  questionCounter = 0;
-  renderQuestion(questions[questionCounter]);
-}
-
-// timer
+// Timer Function and Countdown
 function startTimer() {
   interval = setInterval(countdown, 1000);
 }
@@ -50,7 +40,18 @@ function stopTimer() {
   clearInterval(interval);
 }
 
-// render question
+
+//  QUIZ BEGIN
+function beginQuiz() {
+  document.getElementById(
+    "timer-el"
+  ).innerText = `Time Remaining: ${timeRemaining}`;
+  startTimer();
+  questionCounter = 0;
+  renderQuestion(questions[questionCounter]);
+}
+
+// Questions Section
 function renderQuestion(question) {
   if (questionCounter >= questions.length) return renderResults();
   sections.intro.style.display = "none";
@@ -69,15 +70,13 @@ function renderQuestion(question) {
   }
 }
 
-
-
-// capture answer
+// Answers Function
 function captureAnswer(e) {
   if (e.target.innerText.charAt(0) === questions[questionCounter].correct) {
     correctQuestions++;
     document.getElementById("question-notification-el").innerText = "Correct!";
   } else {
-    timeRemaining > 30 ? (timeRemaining -= 30) : (timeRemaining = 0);
+    timeRemaining > 10 ? (timeRemaining -= 10) : (timeRemaining = 0);
     document.getElementById(
       "question-notification-el"
     ).innerText = `Incorrect... The correct answer was ${questions[questionCounter].correct}`;
@@ -93,13 +92,13 @@ function captureAnswer(e) {
   document.getElementById("next-question-button").innerText = "Continue";
 }
 
-// next question
+// Following Questions
 function nextQuestion() {
   questionCounter++;
   renderQuestion(questions[questionCounter]);
 }
 
-// render results
+// Results Display
 function renderResults() {
   stopTimer();
   document.getElementById("timer-el").innerText = "";
@@ -115,33 +114,8 @@ function renderResults() {
   document.getElementById("initials").value = "";
 }
 
-// save score
-let localStorageKey = "WEB-APIS-CHALLENGE-code-quiz-mikeyrod22";
-function saveScore() {
-  const initials = document.getElementById("initials").value.toUpperCase();
-  if (initials.length !== 3 || initials.match(/[^a-zA-Z]/)) {
-    document.getElementById("invalid-initials-message").style.display = "unset";
-  } else {
-    let store = window.localStorage.getItem(localStorageKey);
-    let payload = { initials: initials, score: score };
-    if (store) {
-      let newStore = JSON.parse(store);
-      newStore.push(payload);
-      window.localStorage.setItem(localStorageKey, JSON.stringify(newStore));
-    } else {
-      window.localStorage.setItem(localStorageKey, JSON.stringify([payload]));
-    }
-    renderHighScores();
-  }
-}
+// Displaying High scores
 
-// clear scores
-function clearScores() {
-  window.localStorage.removeItem(localStorageKey);
-  renderHighScores();
-}
-
-// render high scores
 function renderHighScores() {
   for (item in sections) sections[item].style.display = "none";
   sections.highScores.style.display = "flex";
@@ -159,3 +133,32 @@ function renderHighScores() {
     }
   }
 }
+
+
+// Local Save Score
+let localStorageKey = "Web-APIs-daliamfarag";
+function saveScore() {
+  const initials = document.getElementById("initials").value.toUpperCase();
+  if (initials.length !== 2 || initials.match(/[^a-zA-Z]/)) {
+    document.getElementById("invalid-initials-message").style.display = "unset";
+  } else {
+    let store = window.localStorage.getItem(localStorageKey);
+    let payload = { initials: initials, score: score };
+    if (store) {
+      let newStore = JSON.parse(store);
+      newStore.push(payload);
+      window.localStorage.setItem(localStorageKey, JSON.stringify(newStore));
+    } else {
+      window.localStorage.setItem(localStorageKey, JSON.stringify([payload]));
+    }
+    renderHighScores();
+  }
+}
+
+// To Clear Scores Function
+function clearScores() {
+  window.localStorage.removeItem(localStorageKey);
+  renderHighScores();
+}
+
+

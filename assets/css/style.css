@@ -1,4 +1,3 @@
-/* general / utility */
 * {
     box-sizing: border-box;
     padding: 0;
@@ -14,12 +13,11 @@
   }
   
   :root {
-    --pink: #ffd6ed;
-    --purple: #a47fb9;
-    --navy-1: #7c7ea2;
-    --navy-2: #5d5f83;
-    --text-light: #f5f5f5;
-    --text-dark: #333333;
+    --color1: #530431;
+    --color2: #fefaff;
+    --color3: #988899;
+    --color4: #432746;
+  
   }
   
   .row {
@@ -35,14 +33,14 @@
   
   .hoverable-button:hover {
     cursor: pointer;
-    box-shadow: 0 15px 10px #66688f;
+    box-shadow: 0 15px 10px #563264;
     transform: translateY(-5px);
   }
   
-  /* header */
+  
   .title {
-    background-color: var(--navy-2);
-    color: var(--text-light);
+    background-color: var(--color2);
+    color: var(--color3);
     font-size: 44px;
     padding: 0.5em 0;
     text-align: center;
@@ -52,9 +50,26 @@
     cursor: pointer;
   }
   
+  header h1 {
+    font-size: 60px;
+    text-align: center;
+    padding-bottom: 0.3em;
+    color: var(--color2);
+    border-bottom: 3px solid var(--color4);
+  }
+
+  header h2 {
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 0.3em;
+    color: var(--color2);
+    border-bottom: 3px solid var(--color4);
+  }
+
+
   .subtitle {
-    background-color: var(--navy-1);
-    color: #fff;
+    background-color: var(--color1);
+    color: var(--color2);
     display: flex;
     justify-content: space-between;
     padding: 0.5em 1em 1em;
@@ -64,7 +79,7 @@
   .subtitle h2 {
     font-size: 24px;
     transition: all 0.3s ease 0s;
-    color: #fff;
+    color: var(--color3);
   }
   
   .local-storage:hover {
@@ -76,12 +91,12 @@
   main {
     min-height: 90%;
     display: flex;
-    background-color: var(--pink);
+    background-color: var(--color1);
   }
   
   /* general section styling */
   section {
-    background-color: var(--purple);
+    background-color: var(--color3);
     width: 80%;
     min-height: 500px;
     margin: 0 auto;
@@ -90,15 +105,15 @@
     align-self: center;
     display: flex;
     flex-direction: column;
-    color: var(--text-dark);
+    color: var(--color1);
   }
   
   section h3 {
     font-size: 36px;
     text-align: center;
     padding-bottom: 0.3em;
-    color: var(--text-dark);
-    border-bottom: 3px solid var(--text-dark);
+    color: var(--color1);
+    border-bottom: 3px solid var(--color4);
   }
   
   section p {
@@ -106,122 +121,13 @@
   }
   
   section button {
-    background-color: var(--pink);
+    background-color: var(--color2);
     border: none;
     border-radius: 8px;
-    box-shadow: 0 15px 10px #66688f3a;
+    box-shadow: 0 15px 10px #5c0f6b3a;
     transition: all 0.3s ease 0s;
   }
   
-  /* intro */
-  .intro {
-    text-align: left;
-  }
-  
-  .intro p {
-    margin: 1em 0 0 1em;
-    font-weight: bold;
-  }
-  
-  .intro ul {
-    list-style: inside;
-    font-size: 24px;
-    margin: 1em auto;
-    list-style-position: outside;
-  }
-  
-  .intro button {
-    font-size: 32px;
-    width: 30%;
-    margin: 0 auto;
-    padding: 0.5em;
-  }
-  
-  /* question-card */
-  #answers-container-el {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 auto;
-    padding: 1em 0;
-    border-bottom: 3px solid var(--text-dark);
-  }
-  
-  .answer-choice {
-    width: 70%;
-    font-size: 24px;
-    text-align: left;
-    padding: 0.7em;
-    margin: 0.5em auto;
-  }
-  
-  .non-selected {
-    background-color: var(--navy-1);
-    color: var(--text-light);
-  }
-  
-  #question-notification-el {
-    margin: 1em;
-    font-style: italic;
-    font-size: 28px;
-  }
-  
-  .question-submit {
-    width: 25%;
-    margin: 0 auto 1em;
-    font-size: 32px;
-    padding: 0.5em;
-  }
-  
-  /* results */
-  .results {
-    text-align: center;
-    padding: 4em;
-    justify-content: space-evenly;
-  }
-  
-  .results p {
-    font-size: 28px;
-    margin-bottom: 0.5em;
-    font-weight: bold;
-  }
-  
-  #initials {
-    font-size: 28px;
-    width: 75%;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .results button {
-    width: 50%;
-    margin: 1em auto 0;
-    font-size: 28px;
-    padding: 0.5em 0;
-  }
-  
-  /* high scores */
-  .high-scores p {
-    text-align: center;
-    font-size: 32px;
-    margin-top: 1em;
-  }
-  
-  .high-scores ol {
-    margin: 1em 0;
-    font-size: 24px;
-    align-self: center;
-  }
-  
-  .high-scores button {
-    width: 50%;
-    margin: 1em auto 0;
-    font-size: 28px;
-    padding: 0.5em 0;
-  }
-  
-  /* media queries */
-  /* medium screens */
   @media screen and (max-width: 1020px) {
     section h3 {
       font-size: 28px;
@@ -256,7 +162,115 @@
   
     
   }
+
+  .intro {
+    text-align: left;
+  }
   
+  .intro p {
+    margin: 1em 0 0 1em;
+    font-weight: bold;
+  }
+  
+  .intro ul {
+    list-style: inside;
+    font-size: 24px;
+    margin: 1em auto;
+    list-style-position: outside;
+  }
+  
+  .intro button {
+    font-size: 32px;
+    width: 30%;
+    margin: 0 auto;
+    padding: 0.5em;
+  }
+  
+ 
+  #answers-container-el {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em 0;
+    border-bottom: 3px solid var(--color4);
+  }
+  
+  .answer-choice {
+    width: 70%;
+    font-size: 24px;
+    text-align: left;
+    padding: 0.7em;
+    margin: 0.5em auto;
+  }
+  
+  .non-selected {
+    background-color: var(--color1);
+    color: var(--color1);
+  }
+  
+  #question-notification-el {
+    margin: 1em;
+    font-style: italic;
+    font-size: 28px;
+  }
+  
+  .question-submit {
+    width: 25%;
+    margin: 0 auto 1em;
+    font-size: 32px;
+    padding: 0.5em;
+  }
+  
+  
+  .results {
+    text-align: center;
+    padding: 4em;
+    justify-content: space-evenly;
+  }
+  
+  .results p {
+    font-size: 28px;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+  }
+  
+  #initials {
+    font-size: 28px;
+    width: 75%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .results button {
+    width: 50%;
+    margin: 1em auto 0;
+    font-size: 28px;
+    padding: 0.5em 0;
+  }
+  
+
+  .high-scores p {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 1em;
+  }
+  
+  .high-scores ol {
+    margin: 1em 0;
+    font-size: 24px;
+    align-self: center;
+  }
+  
+  .high-scores button {
+    width: 50%;
+    margin: 1em auto 0;
+    font-size: 28px;
+    padding: 0.5em 0;
+  }
+  
+ 
+
   @media screen and (max-width: 768px) {
     .title {
       font-size: 36px;

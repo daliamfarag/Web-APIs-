@@ -4,75 +4,79 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Code Quiz</title>
+    <title>JavaScript Fundamentals Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
     <header>
-      <h1 class="title" onclick="pageLoad()">Michael's Code Quiz</h1>
       <div class="subtitle">
         <h2 class="hoverable-text" onclick="renderHighScores()">
-          View High Scores
+          Click High Scores
         </h2>
         <h2 id="timer-el"></h2>
       </div>
     </header>
     <main>
-      <section id="intro" class="intro">
-        <h3>Hello World!</h3>
-        <p>Welcome to my timed programming quiz. Here are the rules:</p>
-        <ul>
-          <li>You will have 300 seconds to complete the quiz.</li>
-          <li>You may skip as many questions as you like.</li>
-          <li>Answers can not be changed once selected.</li>
-          <li>30 seconds will be deducted for incorrect answers.</li>
-          <li>Correct answers will increase your score by 10 points.</li>
-          <li>
-            Every second of time remaining at quiz completion will increase your
-            score by 1 points.
-          </li>
-        </ul>
-        <button class="hoverable-button" onclick="beginQuiz()">Start Quiz!</button>
-      </section>
-      <section id="question-card" class="question-card">
-        <h3 id="question-text-el"></h3>
-        <div id="answers-container-el"></div>
-        <div id="question-notification-el"></div>
-        <button
-          id="next-question-button"
-          class="question-submit hoverable-button"
-          onclick="nextQuestion()"
-        >
-          Skip
-        </button>
-      </section>
-      <section id="results" class="results">
-        <p>Number of questions answered correctly:</p>
-        <p id="correct-questions-el"></p>
-        <p>Time Remaining:</p>
-        <p id="time-remaining-el"></p>
-        <p>Final score:</p>
-        <p id="final-score-el"></p>
-        <input
-          type="text"
-          name="initials"
-          id="initials"
-          placeholder="Enter initials"
-          maxlength="3"
-        />
-        <p id="invalid-initials-message">Field must contain 3 letters.</p>
-        <button class="hoverable-button" onclick="saveScore()">Save Score</button>
-        <button class="hoverable-button" onclick="pageLoad()">Retake Quiz</button>
-      </section>
-      <section id="high-scores" class="high-scores">
-        <h3>High Scores</h3>
-        <p id="empty-storage-message">
-          There are no scores currently saved to local storage.
-        </p>
-        <ol id="high-scores-ol"></ol>
-        <button class="hoverable-button" onclick="pageLoad()">Return to Quiz</button>
-        <button class="hoverable-button" id="clear-scores-button" onclick="clearScores()">Clear Saved Scores</button>
-      </section>
+        <section id="intro" class="intro">
+            <div>
+                <h1> Welcome to JavaScript Fundamentals Quiz</h1>
+                <h2> Please follow the rules:</h2>
+                <ul>
+                    <li> Try to answer the quiz questions within the time limit</li>
+                    <li> Incorrect answers will penalize your scoretime by ten seconds </li>
+                </ul>
+                <h2> Press the start button to begin the quiz</h2>
+            </div>
+
+            <button class="hoverable-button" onclick="beginQuiz()">Start Quiz!</button>
+        </section>
+      
+        <section id="question-card" class="question-card">
+            <h3 id="question-text-el"></h3>
+            <div id="answers-container-el"></div>
+            <div id="question-notification-el"></div>
+            <button
+            id="next-question-button"
+            class="question-submit hoverable-button"
+            onclick="nextQuestion()"
+            >
+            Skip
+            </button>
+        </section>
+
+
+        <section id="results" class="results">
+            <p> CONGRATULATIONS YOU HAVE FINISHED THE QUIZ!</p>
+            <p>Number of questions answered correctly:</p>
+            <p id="correct-questions-el"></p>
+            <p>Time Remaining:</p>
+            <p id="time-remaining-el"></p>
+            <p>Final score:</p>
+            <p id="final-score-el"></p>
+            <input
+            type="text"
+            name="initials"
+            id="initials"
+            placeholder="Enter initials"
+            maxlength="3"
+            />
+            <p id="invalid-initials-message">Field must contain 2 letters.</p>
+            <button class="hoverable-button" onclick="saveScore()">Save Score</button>
+            <button class="hoverable-button" onclick="pageLoad()">Retake Quiz</button>
+        </section>
+
+
+        <section id="high-scores" class="high-scores">
+            <h3>High Scores</h3>
+            <p id="empty-storage-message">
+            There are no scores currently saved to local storage.
+            </p>
+            <ol id="high-scores-ol"></ol>
+            <button class="hoverable-button" onclick="pageLoad()">Return to Quiz</button>
+            <button class="hoverable-button" id="clear-scores-button" onclick="clearScores()">Clear Saved Scores</button>
+        </section>
+        
+        <!--directory files to questions.js-->
       <script src="./assets/js/questions.js"></script>
       <script src="./assets/js/script.js"></script>
     </main>
