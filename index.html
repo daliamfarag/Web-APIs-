@@ -1,87 +1,80 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-        <!--Intro page-->
-        <div class="page info_box">
-            <header>
-                <div class="hs_btn"><button id="hs_btn1">View high scores</button></div>
-                <div class="timer">
-                    <div class="time_left_txt">Time:</div>
-                    <div class="timer_sec">75</div>
-                </div>
-            </header>
-            <section>
-                <h1>Coding Quiz Challenge</h1>
-                <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by 10 seconds.</p>
-                <div class="btn"><button id="start_btn">Start Quiz</button></div>
-            </section>
-        </div>
-
-        <!-- Quiz Box -->
-        <div class="page quiz_box">
-            <header>
-                <div class="hs_btn" ><button id="hs_btn2">View high scores</button></div>
-                <div class="timer">
-                    <div class="time_left_txt">Time:</div>
-                    <div class="timer_sec_quiz"></div>
-                </div>
-            </header>
-            <section>
-                <div class="que_text">
-                </div>
-                <div class="option_list">
-                </div>
-                <div class="right_wrong">
-                </div>
-            </section>
-        </div>
-
-        <!-- Results -->
-        <div class="page result_box">
-            <header>
-                <div class="hs_btn" ><button id="hs_btn3">View high scores</button></div>
-                <div class="timer">
-                    <div class="time_left_txt">Time:</div>
-                    <div id="user_score1"></div>
-                </div>
-            </header>
-            <section>
-                <div class="complete_text">All done!</div>
-                <div class="results1">
-                    <div class="score_text">Your final score is</div>
-                    <div class="score_text" id="user_score2" name="user_score"></div>
-                </div>
-                <div class="results2">
-                    <div class="form_group">Enter your initials</div>
-                    <div>
-                        <input type="text" id="initials" name="initials"/>
-                    </div>
-                    <div class="btn">
-                        <button class="restart" id="submit_btn">Submit</button>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <div class="page hs_box">
-            <section>
-                <h1>High scores</h1>
-                <div class="final_results" id="final_results">
-                    <ol id="highScoresList"></ol>
-                </div>
-                <button class="btn" id="gb_btn">Go back</button>
-                <button class="btn" id="chs_btn">Clear high scores</button>
-            </section>
-        </div>
-        <script src="./assets/js/script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="title" onclick="pageLoad()">Michael's Code Quiz</h1>
+      <div class="subtitle">
+        <h2 class="hoverable-text" onclick="renderHighScores()">
+          View High Scores
+        </h2>
+        <h2 id="timer-el"></h2>
+      </div>
+    </header>
+    <main>
+      <section id="intro" class="intro">
+        <h3>Hello World!</h3>
+        <p>Welcome to my timed programming quiz. Here are the rules:</p>
+        <ul>
+          <li>You will have 300 seconds to complete the quiz.</li>
+          <li>You may skip as many questions as you like.</li>
+          <li>Answers can not be changed once selected.</li>
+          <li>30 seconds will be deducted for incorrect answers.</li>
+          <li>Correct answers will increase your score by 10 points.</li>
+          <li>
+            Every second of time remaining at quiz completion will increase your
+            score by 1 points.
+          </li>
+        </ul>
+        <button class="hoverable-button" onclick="beginQuiz()">Start Quiz!</button>
+      </section>
+      <section id="question-card" class="question-card">
+        <h3 id="question-text-el"></h3>
+        <div id="answers-container-el"></div>
+        <div id="question-notification-el"></div>
+        <button
+          id="next-question-button"
+          class="question-submit hoverable-button"
+          onclick="nextQuestion()"
+        >
+          Skip
+        </button>
+      </section>
+      <section id="results" class="results">
+        <p>Number of questions answered correctly:</p>
+        <p id="correct-questions-el"></p>
+        <p>Time Remaining:</p>
+        <p id="time-remaining-el"></p>
+        <p>Final score:</p>
+        <p id="final-score-el"></p>
+        <input
+          type="text"
+          name="initials"
+          id="initials"
+          placeholder="Enter initials"
+          maxlength="3"
+        />
+        <p id="invalid-initials-message">Field must contain 3 letters.</p>
+        <button class="hoverable-button" onclick="saveScore()">Save Score</button>
+        <button class="hoverable-button" onclick="pageLoad()">Retake Quiz</button>
+      </section>
+      <section id="high-scores" class="high-scores">
+        <h3>High Scores</h3>
+        <p id="empty-storage-message">
+          There are no scores currently saved to local storage.
+        </p>
+        <ol id="high-scores-ol"></ol>
+        <button class="hoverable-button" onclick="pageLoad()">Return to Quiz</button>
+        <button class="hoverable-button" id="clear-scores-button" onclick="clearScores()">Clear Saved Scores</button>
+      </section>
+      <script src="./assets/js/questions.js"></script>
+      <script src="./assets/js/script.js"></script>
+    </main>
+  </body>
 </html>
