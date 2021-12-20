@@ -1,78 +1,87 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dalia Multiple Choice Questions</title>
+    <title>Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <div id="container">
-
-        <div id="landing-page">
-
-            <div>
-                welcome to the quiz 
-    
-                those are the rules:
-               
-    
-                <ul>
-                    <li>
-                        1 - kjsdfnldksfl
-                    </li>
-                    <li>
-                        2 - sdkjfdfn
-                    </li>
-                </ul>
-    
-    
-                press the start button to begind
-            </div>
-    
-            <button id="start">Start Quiz!</button>
+        <!--Intro page-->
+        <div class="page info_box">
+            <header>
+                <div class="hs_btn"><button id="hs_btn1">View high scores</button></div>
+                <div class="timer">
+                    <div class="time_left_txt">Time:</div>
+                    <div class="timer_sec">75</div>
+                </div>
+            </header>
+            <section>
+                <h1>Coding Quiz Challenge</h1>
+                <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by 10 seconds.</p>
+                <div class="btn"><button id="start_btn">Start Quiz</button></div>
+            </section>
         </div>
 
-
-        <div id="quiz-page" class="display">
-
-            <div id="question"></div>
-
-            <div id="choices">
-
-                <div class="choice" id="A" onclick="checkAnswer('A')">a</div>
-
-                <div class="choice" id="B" onclick="checkAnswer('B')">b</div>
-
-                <div class="choice" id="C" onclick="checkAnswer('C')">c</div>
-
-            </div>
-
-            
-            <div id="progress"></div>
-            
+        <!-- Quiz Box -->
+        <div class="page quiz_box">
+            <header>
+                <div class="hs_btn" ><button id="hs_btn2">View high scores</button></div>
+                <div class="timer">
+                    <div class="time_left_txt">Time:</div>
+                    <div class="timer_sec_quiz"></div>
+                </div>
+            </header>
+            <section>
+                <div class="que_text">
+                </div>
+                <div class="option_list">
+                </div>
+                <div class="right_wrong">
+                </div>
+            </section>
         </div>
 
-
-        <div id="timer" class ="display">
-
-            <!-- <div id="counter"></div>
-
-            <div id="btimeGauge"></div>
-
-            <div id="timeGauge"></div> -->
-
+        <!-- Results -->
+        <div class="page result_box">
+            <header>
+                <div class="hs_btn" ><button id="hs_btn3">View high scores</button></div>
+                <div class="timer">
+                    <div class="time_left_txt">Time:</div>
+                    <div id="user_score1"></div>
+                </div>
+            </header>
+            <section>
+                <div class="complete_text">All done!</div>
+                <div class="results1">
+                    <div class="score_text">Your final score is</div>
+                    <div class="score_text" id="user_score2" name="user_score"></div>
+                </div>
+                <div class="results2">
+                    <div class="form_group">Enter your initials</div>
+                    <div>
+                        <input type="text" id="initials" name="initials"/>
+                    </div>
+                    <div class="btn">
+                        <button class="restart" id="submit_btn">Submit</button>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <div id="score-container" class="display">
-
-
-            COGRATULATIONS YOU HAVE WON
+        <div class="page hs_box">
+            <section>
+                <h1>High scores</h1>
+                <div class="final_results" id="final_results">
+                    <ol id="highScoresList"></ol>
+                </div>
+                <button class="btn" id="gb_btn">Go back</button>
+                <button class="btn" id="chs_btn">Clear high scores</button>
+            </section>
         </div>
-
-    </div>
-
-    <script src="./assets/js/script.js"></script>
+        <script src="./assets/js/script.js"></script>
 </body>
 </html>
